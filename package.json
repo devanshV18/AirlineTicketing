@@ -1,0 +1,14 @@
+{
+  "name": "airlineticketing",
+  "version": "1.0.0",
+  "description": "Airline ticketing application backend",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "http-status-codes": "^2.3.0"
+  }
+}
