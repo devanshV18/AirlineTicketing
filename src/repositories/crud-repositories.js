@@ -1,4 +1,4 @@
-const Logger = require('../config')
+const {logger} = require('../config')
 
 class CrudRepository{
     constructor(model){
@@ -10,7 +10,7 @@ class CrudRepository{
             const response = await this.model.create(data)
             return response
         } catch (error) {
-            Logger.errpr("Something went wrong in crud-repository create method", error)
+            logger.error("Something went wrong in crud-repository create method", {error})
             throw error
         }   
     }
@@ -23,7 +23,7 @@ class CrudRepository{
                 }
             })
         } catch (error) {
-            Logger.error("Something went wrong in crud-repository destroy method", error)
+            logger.error("Something went wrong in crud-repository destroy method", {error})
         }
     }
 
@@ -32,7 +32,7 @@ class CrudRepository{
             const response = await this.model.findByPk(data)
             return response
         } catch (error) {
-            Logger.error("Something went wrong in crud-repository get method", error)
+            logger.error("Something went wrong in crud-repository get method", {error})
             throw error
         }
     }
@@ -42,7 +42,7 @@ class CrudRepository{
             const response = await this.model.findAll()
             return response
         } catch (error) {
-            Logger.error("Something went wrong in crud-repository getAll method", error)
+            logger.error("Something went wrong in crud-repository getAll method", {error})
             throw error
         }
     }
@@ -56,9 +56,9 @@ class CrudRepository{
             })
             return response
         } catch (error) {
-            Logger.error("Something went wrong in crud-repository update method", error)
+            logger.error("Something went wrong in crud-repository update method", {error})
         }
     }
 }
 
-model.exports = CrudRepository
+module.exports = CrudRepository
