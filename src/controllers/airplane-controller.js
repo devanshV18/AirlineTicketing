@@ -29,6 +29,19 @@ async function getAirplanes(req,res){
     }
 }
 
+
+// route -> /api/v1/airplanes/:id
+async function getAirplaneById(req,res){
+    try {
+        const airplane = await AirplaneService.getAirplaneById(req.params.id)
+        SuccessResponse.data = airplane
+        return res.status(StatusCodes.OK).json(SuccessResponse)
+    } catch (error) {
+        ErrorResponse.error = error
+        res.status(error.statusCode).json(ErrorResponse)
+    }
+}
+
 module.exports = {
-    createAirplane, getAirplanes
+    createAirplane, getAirplanes,getAirplaneById
 }
