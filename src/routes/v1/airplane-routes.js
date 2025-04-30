@@ -1,10 +1,12 @@
 const express = require('express')
 const {AirplaneController} = require('../../controllers')
-const { validateCreateRequest } = require('../../middlewares/airplane-middleware')
+const {AirplaneMiddleware} = require('../../middlewares')
 const router = express.Router()
 
 // /api/v1/airplanes
-router.post('/', validateCreateRequest, AirplaneController.createAirplane)
+router.post('/', AirplaneMiddleware.validateCreateRequest, AirplaneController.createAirplane)
+
+router.get('/', AirplaneController.getAirplanes)
 
 module.exports = router
 
