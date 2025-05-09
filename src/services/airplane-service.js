@@ -18,7 +18,7 @@ async function createAirplane(data) {
             console.log("Error array", explanation)
             throw new AppError(explanation, StatusCodes.BAD_REQUEST)
         }
-        throw new AppError("Something went wrong in the service layer", StatusCodes.INTERNAL_SERVER_ERROR)
+        throw new AppError("Something went wrong in the airplane-service layer", StatusCodes.INTERNAL_SERVER_ERROR)
     }
 }
 
